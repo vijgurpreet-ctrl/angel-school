@@ -11,6 +11,219 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* Certificates dropdown fix */
+    .nav-links .nav-dropdown{
+      position:relative;
+      display:flex;
+      align-items:center;
+      margin:0;
+      padding:0;
+      font:inherit;
+    }
+
+    .nav-links .nav-dropdown > summary{
+      list-style:none;
+    }
+
+    .nav-links .nav-dropdown > summary::-webkit-details-marker{
+      display:none;
+    }
+
+    .nav-links .nav-dropdown-toggle{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      margin:0;
+      padding:10px 0;
+      background:none;
+      border:0;
+      color:inherit;
+      font:inherit;
+      font-weight:600;
+      cursor:pointer;
+      line-height:1.2;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .nav-links .dropdown-arrow{
+      font-size:.78em;
+      transition:transform .2s ease;
+    }
+
+    .nav-links .nav-dropdown[open] .dropdown-arrow{
+      transform:rotate(180deg);
+    }
+
+    .nav-links .nav-dropdown-menu{
+      position:absolute;
+      top:calc(100% + 10px);
+      left:50%;
+      transform:translateX(-50%);
+      min-width:245px;
+      background:#fff;
+      padding:8px;
+      border-radius:14px;
+      box-shadow:0 16px 40px rgba(0,0,0,.15);
+      z-index:9999;
+    }
+
+    .nav-links .nav-dropdown-menu a{
+      display:block;
+      box-sizing:border-box;
+      width:100%;
+      padding:11px 14px;
+      margin:0;
+      border-radius:10px;
+      color:#222 !important;
+      text-decoration:none;
+      text-align:left;
+      white-space:nowrap;
+    }
+
+    .nav-links .nav-dropdown-menu a:hover,
+    .nav-links .nav-dropdown-menu a:focus{
+      background:#f3efff;
+      color:#6d28d9 !important;
+    }
+
+    @media (max-width:900px){
+      .nav-links{
+        width:100%;
+      }
+
+      .nav-links .nav-dropdown{
+        display:block !important;
+        width:100% !important;
+        margin:0 !important;
+        padding:0 !important;
+      }
+
+      .nav-links .nav-dropdown-toggle{
+        display:flex !important;
+        width:100% !important;
+        box-sizing:border-box !important;
+        justify-content:flex-start !important;
+        align-items:center !important;
+        gap:7px !important;
+        padding:12px 0 !important;
+        margin:0 !important;
+        text-align:left !important;
+        font:inherit !important;
+        font-weight:600 !important;
+        line-height:1.4 !important;
+      }
+
+      .nav-links .nav-dropdown-menu{
+        position:static !important;
+        transform:none !important;
+        width:100% !important;
+        min-width:0 !important;
+        box-sizing:border-box !important;
+        margin:2px 0 8px !important;
+        padding:6px 0 6px 14px !important;
+        border-left:3px solid #6d28d9;
+        border-radius:0 10px 10px 0 !important;
+        box-shadow:none !important;
+        background:rgba(109,40,217,.06) !important;
+      }
+
+      .nav-links .nav-dropdown-menu a{
+        display:block !important;
+        width:100% !important;
+        box-sizing:border-box !important;
+        margin:0 !important;
+        padding:10px 12px !important;
+        color:inherit !important;
+        white-space:normal !important;
+        text-align:left !important;
+        line-height:1.35 !important;
+      }
+    }
+  </style>
+
+
+  <style>
+    /* Final mobile alignment + scroll fix for Certificates */
+    @media (max-width:900px){
+
+      /* Ensure all mobile nav entries line up identically */
+      .nav-links > a,
+      .nav-links .nav-dropdown,
+      .nav-links .nav-dropdown-toggle{
+        width:100% !important;
+        box-sizing:border-box !important;
+      }
+
+      .nav-links .nav-dropdown{
+        display:block !important;
+        margin:0 !important;
+        padding:0 !important;
+      }
+
+      .nav-links .nav-dropdown-toggle{
+        justify-content:flex-start !important;
+        text-align:left !important;
+        margin:0 !important;
+        padding:12px 0 !important;
+        border:0 !important;
+        background:transparent !important;
+      }
+
+      /* Keep certificate dropdown directly below Gallery */
+      .nav-links .nav-dropdown-menu{
+        position:static !important;
+        left:auto !important;
+        top:auto !important;
+        transform:none !important;
+        width:100% !important;
+        min-width:0 !important;
+        box-sizing:border-box !important;
+
+        /* Scrollable area so every certificate stays reachable */
+        max-height:220px !important;
+        overflow-y:auto !important;
+        overflow-x:hidden !important;
+        -webkit-overflow-scrolling:touch;
+
+        margin:0 0 8px 0 !important;
+        padding:6px 0 6px 14px !important;
+
+        background:rgba(109,40,217,.06) !important;
+        border-left:3px solid #6d28d9 !important;
+        border-radius:0 10px 10px 0 !important;
+        box-shadow:none !important;
+      }
+
+      .nav-links .nav-dropdown-menu a{
+        display:block !important;
+        width:100% !important;
+        box-sizing:border-box !important;
+        margin:0 !important;
+        padding:10px 12px !important;
+        text-align:left !important;
+        white-space:normal !important;
+        line-height:1.35 !important;
+      }
+
+      /* Visible scrollbar on supported mobile browsers */
+      .nav-links .nav-dropdown-menu{
+        scrollbar-width:thin;
+      }
+
+      .nav-links .nav-dropdown-menu::-webkit-scrollbar{
+        width:6px;
+      }
+
+      .nav-links .nav-dropdown-menu::-webkit-scrollbar-thumb{
+        background:rgba(109,40,217,.45);
+        border-radius:10px;
+      }
+    }
+  </style>
+
 </head>
 <body>
   <div class="page-glow glow-one"></div>
@@ -45,18 +258,19 @@
         <a href="#academics">Academics</a>
         <a href="#facilities">Facilities</a>
         <a href="#gallery">Gallery</a>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle" type="button" aria-haspopup="true" aria-expanded="false">
-            Certificates <span aria-hidden="true">▾</span>
-          </button>
+        <details class="nav-dropdown">
+          <summary class="nav-dropdown-toggle">
+            <span>Certificates</span>
+            <span class="dropdown-arrow" aria-hidden="true">▾</span>
+          </summary>
           <div class="nav-dropdown-menu">
-            <a href="certificate1.jpeg" target="_blank" rel="noopener">Water Test Certificate</a>
-            <a href="certificate2.jpeg" target="_blank" rel="noopener">Water Certificate</a>
-            <a href="certificate3.jpeg" target="_blank" rel="noopener">Fire Safety Certificate</a>
-            <a href="certificate4.jpeg" target="_blank" rel="noopener">Building Safety Certificate</a>
-            <a href="certificate5.jpeg" target="_blank" rel="noopener">Society Certificate</a>
+            <a href="certificate1.jpeg" target="_blank" rel="noopener noreferrer">Water Test Certificate</a>
+            <a href="certificate2.jpeg" target="_blank" rel="noopener noreferrer">Water Certificate</a>
+            <a href="certificate3.jpeg" target="_blank" rel="noopener noreferrer">Fire Safety Certificate</a>
+            <a href="certificate4.jpeg" target="_blank" rel="noopener noreferrer">Building Safety Certificate</a>
+            <a href="certificate5.jpeg" target="_blank" rel="noopener noreferrer">Society Certificate</a>
           </div>
-        </div>
+        </details>
 
         <a href="#contact" class="nav-cta">Contact Us</a>
       </div>
@@ -272,5 +486,19 @@
   </div>
 
   <script src="script.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const certificateDropdown = document.querySelector('.nav-dropdown');
+      if (!certificateDropdown) return;
+
+      certificateDropdown.querySelectorAll('.nav-dropdown-menu a').forEach(function(link){
+        link.addEventListener('click', function(){
+          certificateDropdown.removeAttribute('open');
+        });
+      });
+    });
+  </script>
+
 </body>
 </html>
